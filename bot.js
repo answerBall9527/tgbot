@@ -45,7 +45,7 @@ bot.command("start", async (ctx) => {
         reply_markup: {
             inline_keyboard: [
                 [{ text: "Start", callback_data: "start_conversation" }],  // 启动对话的按钮
-                [{ text: "Open Web App", web_app: { url: "https://next-wagmi-template.vercel.app/" } }],  // 打开 Web App 的按钮
+                [{ text: "Open Web App", web_app: { url: "https://test2-git-main-answerball9527s-projects.vercel.app/" } }],  // 打开 Web App 的按钮
                 [{ text: "Open Web App1", web_app: { url: "https://next-wagmi-template.vercel.app/" } }],  // 打开 Web App 的按钮
                 // [{ text: "Open localhost App", web_app: { url: "http://192.168.8.154:3000/u/tomoDemo" } }],  // 打开 Web App 的按钮
                 [{ text: "Share with others", switch_inline_query: "Check this out!" }]  // 分享按钮
