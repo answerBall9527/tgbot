@@ -36,23 +36,26 @@ async function userInfoConversation(conversation, ctx) {
     }
 }
 
-// 注册 conversation
-bot.use(createConversation(userInfoConversation));
-
-// 设置 /start 命令为展示 "Start" 按钮并添加 Web App 和分享按钮
+// 先定义所有的命令处理程序
 bot.command("start", async (ctx) => {
     await ctx.reply("点击按钮开始输入信息，打开 Web App 或分享给他人:", {
         reply_markup: {
             inline_keyboard: [
-                [{ text: "Start", callback_data: "start_conversation" }],  // 启动对话的按钮
-                [{ text: "Open Web App", web_app: { url: "https://test2-git-main-answerball9527s-projects.vercel.app/" } }],  // 打开 Web App 的按钮
-                [{ text: "Open Web App1", web_app: { url: "https://next-wagmi-template.vercel.app/" } }],  // 打开 Web App 的按钮
-                // [{ text: "Open localhost App", web_app: { url: "http://192.168.8.154:3000/u/tomoDemo" } }],  // 打开 Web App 的按钮
-                [{ text: "Share with others", switch_inline_query: "Check this out!" }]  // 分享按钮
+                [{ text: "Start", callback_data: "start_conversation" }],
+                [{ text: "Open Web App", web_app: { url: "https://test2-git-main-answerball9527s-projects.vercel.app/" } }],
+                [{ text: "Open Web App1", web_app: { url: "https://next-wagmi-template.vercel.app/" } }],
+                [{ text: "Share with others", switch_inline_query: "Check this out!" }]
             ]
         }
     });
 });
+
+bot.command("ping", async (ctx) => {
+    await ctx.reply("Pong!");
+});
+
+// 最后才注册 conversation
+bot.use(createConversation(userInfoConversation));
 
 // 处理按钮点击事件，进入多步对话流程
 bot.on("callback_query:data", async (ctx) => {
@@ -65,9 +68,4 @@ bot.on("callback_query:data", async (ctx) => {
 // 启动机器人
 bot.start().then(() => {
     console.log('Bot started');
-});
-
-
-bot.command("ping", async (ctx) => {
-    await ctx.reply("Pong!");
 });
