@@ -44,6 +44,7 @@ bot.command("start", async (ctx) => {
                 [{ text: "Start", callback_data: "start_conversation" }],
                 [{ text: "Open Web App", web_app: { url: "https://test2-git-main-answerball9527s-projects.vercel.app/" } }],
                 [{ text: "Open Web App1", web_app: { url: "https://next-wagmi-template.vercel.app/" } }],
+                [{ text: "Open stakestone", web_app: { url: "https://stakestone.io/" } }],
                 [{ text: "Share with others", switch_inline_query: "Check this out!" }]
             ]
         }
